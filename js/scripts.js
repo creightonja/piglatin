@@ -65,3 +65,17 @@ function pigLatin(word) {
 
   return pigword;
 }
+
+function wordSplit(words){
+  var wordArray = [];  //set word Array to empty array
+  var removePunctuation = words.replace(/[.,-\/#!$%\^&\*;:{}=\-_`~()]/g,"");  //removing punctuation
+  var lowerWords = removePunctuation.toLowerCase();  //convert to lower
+  var splitWords = lowerWords.split(' ');  //split the words by ' '
+  var length = splitWords.length;  //get length
+  for (var i = 0; i < length; i++) { //loop through word array
+    var word = pigLatin(splitWords[i]);  //use word array at index i
+    wordArray.push(word);  //add returned pig word to pig array
+  }
+  var pigWords = wordArray.join(' ');  //Rejoin words into a string
+  return pigWords;  //return the sentence
+}
