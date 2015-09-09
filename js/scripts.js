@@ -78,4 +78,24 @@ function wordSplit(words){
   }
   var pigWords = wordArray.join(' ');  //Rejoin words into a string
   return pigWords;  //return the sentence
-}
+};
+
+
+
+
+
+$(document).ready(function() {
+  $("form#pigwords").submit(function(event) {
+    var words = $("input#words").val();
+    // console.log(words);
+    var pigWords = wordSplit(words);
+    $(".english").empty();
+    $(".english").text(words);
+
+    $(".piglatin").empty();
+    $(".piglatin").text(pigWords);
+
+    $(".showme").show();
+    event.preventDefault();
+  });
+});
